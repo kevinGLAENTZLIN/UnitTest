@@ -7,5 +7,6 @@
     #include "lib.h"
 
 void test_str(char *const str);
+int test_value(char character);
 
 #endif

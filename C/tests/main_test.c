@@ -10,6 +10,7 @@
 #include "../include/test.h"
 
 void test_str(char *const str);
+int test_value(char character);
 
 void redirect_all_std(void)
 {
@@ -21,4 +22,10 @@ Test (test_str, equal_str, .init = redirect_all_std)
 {
     test_str("coucou\n");
     cr_assert_stdout_eq_str("coucou\n");
+}
+
+
+Test (test_value, return_value_equal, .init = redirect_all_std)
+{
+    cr_assert_eq(test_value('C'), 42);
 }

@@ -5,29 +5,16 @@
 ## program to build my lib and my unit-test with single files
 ##
 
-SRC	=	main.c	\
-		lib/my/my_putstr.c
-
-OBJ	=	$(SRC:.c=.o)
-
-NAME	=	main_test
-
-all:	main_test
-
-$(NAME):	$(OBJ)
-	gcc -g -o  $(NAME) $(OBJ)
-
-unit_tests:	fclean $(NAME)
+unit_tests:	fclean
 	make -C tests/ re
 
 tests_run:	unit_tests
 	./unit_test
 
 clean:
-	rm -f $(OBJ)
+	make -C tests/ clean
 
-fclean: clean
-	rm -f $(NAME)
+fclean:
 	make -C tests/ fclean
 
 re:	fclean all
