@@ -11,6 +11,7 @@
 
 void test_str(char *const str);
 int test_value(char character);
+void test_str_in_struct(test_t *test);
 
 void redirect_all_std(void)
 {
@@ -28,4 +29,13 @@ Test (test_str, equal_str, .init = redirect_all_std)
 Test (test_value, return_value_equal, .init = redirect_all_std)
 {
     cr_assert_eq(test_value('C'), 42);
+}
+
+Test (test_str_in_struct, test_structure, .init = redirect_all_std)
+{
+    test_t *test = malloc(sizeof(test_t));
+
+    test_str_in_struct(test);
+    free(test);
+    cr_assert_stdout_eq_str("test\n");
 }

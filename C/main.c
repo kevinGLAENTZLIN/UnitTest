@@ -1,13 +1,11 @@
 #include "include/test.h"
 
-int test_value(char character)
+int main(void)
 {
-    if (character == 'C')
-        return 42;
-    return 0;
-}
+    test_t *test = malloc(sizeof(test_t));
 
-void test_str(char *const str)
-{
-    my_putstr(str);
+    test_value('C');
+    test_str("coucou\n");
+    test_str_in_struct(test);
+    return 0;
 }

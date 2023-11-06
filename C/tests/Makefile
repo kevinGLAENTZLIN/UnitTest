@@ -7,7 +7,7 @@
 
 SRC_TEST	=	main_test.c
 
-SRC_C	=	../main.c \
+SRC_C	=	../test_function.c	\
 			../lib/my/my_putstr.c
 
 
